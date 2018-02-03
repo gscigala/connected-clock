@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F09052EC20261D8400B5CDF0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F09052EB20261D8400B5CDF0 /* main.cpp */; };
+		F09052F420261DC800B5CDF0 /* clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F09052F220261DC800B5CDF0 /* clock.cpp */; settings = {COMPILER_FLAGS = "-DBOOST_LOG_DYN_LINK"; }; };
+		F0A514B42026275F00003BCF /* libboost_log-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A514B32026275F00003BCF /* libboost_log-mt.dylib */; };
+		F0A514B620262C1B00003BCF /* libboost_timer-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A514B520262C1B00003BCF /* libboost_timer-mt.a */; };
+		F0A514B820262C3100003BCF /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A514B720262C3100003BCF /* libboost_system-mt.a */; };
+		F0A514BA202630E300003BCF /* libboost_thread-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A514B9202630E300003BCF /* libboost_thread-mt.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,12 @@
 /* Begin PBXFileReference section */
 		F09052E820261D8400B5CDF0 /* BigBen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BigBen; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09052EB20261D8400B5CDF0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F09052F220261DC800B5CDF0 /* clock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = clock.cpp; sourceTree = "<group>"; };
+		F09052F320261DC800B5CDF0 /* clock.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = clock.hpp; sourceTree = "<group>"; };
+		F0A514B32026275F00003BCF /* libboost_log-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_log-mt.dylib"; path = "../../../../../opt/local/lib/libboost_log-mt.dylib"; sourceTree = "<group>"; };
+		F0A514B520262C1B00003BCF /* libboost_timer-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_timer-mt.a"; path = "../../../../../opt/local/lib/libboost_timer-mt.a"; sourceTree = "<group>"; };
+		F0A514B720262C3100003BCF /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../opt/local/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
+		F0A514B9202630E300003BCF /* libboost_thread-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_thread-mt.dylib"; path = "../../../../../opt/local/lib/libboost_thread-mt.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A514BA202630E300003BCF /* libboost_thread-mt.dylib in Frameworks */,
+				F0A514B820262C3100003BCF /* libboost_system-mt.a in Frameworks */,
+				F0A514B620262C1B00003BCF /* libboost_timer-mt.a in Frameworks */,
+				F0A514B42026275F00003BCF /* libboost_log-mt.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +56,10 @@
 		F09052DF20261D8400B5CDF0 = {
 			isa = PBXGroup;
 			children = (
-				F09052EA20261D8400B5CDF0 /* BigBen */,
+				F09052F520261DE000B5CDF0 /* src */,
+				F09052F620261E6800B5CDF0 /* inc */,
 				F09052E920261D8400B5CDF0 /* Products */,
+				F0A514B22026275E00003BCF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +71,32 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F09052EA20261D8400B5CDF0 /* BigBen */ = {
+		F09052F520261DE000B5CDF0 /* src */ = {
 			isa = PBXGroup;
 			children = (
 				F09052EB20261D8400B5CDF0 /* main.cpp */,
+				F09052F220261DC800B5CDF0 /* clock.cpp */,
 			);
-			path = BigBen;
+			path = src;
+			sourceTree = "<group>";
+		};
+		F09052F620261E6800B5CDF0 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				F09052F320261DC800B5CDF0 /* clock.hpp */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		F0A514B22026275E00003BCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0A514B9202630E300003BCF /* libboost_thread-mt.dylib */,
+				F0A514B720262C3100003BCF /* libboost_system-mt.a */,
+				F0A514B520262C1B00003BCF /* libboost_timer-mt.a */,
+				F0A514B32026275F00003BCF /* libboost_log-mt.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F09052F420261DC800B5CDF0 /* clock.cpp in Sources */,
 				F09052EC20261D8400B5CDF0 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +212,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -223,6 +262,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -232,18 +272,26 @@
 		F09052F020261D8400B5CDF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2CX65XN64U;
+				HEADER_SEARCH_PATHS = /opt/local/include;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/inc";
 			};
 			name = Debug;
 		};
 		F09052F120261D8400B5CDF0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2CX65XN64U;
+				HEADER_SEARCH_PATHS = /opt/local/include;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/inc";
 			};
 			name = Release;
 		};

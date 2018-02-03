@@ -6,10 +6,17 @@
 //  Copyright © 2018 Silence. All rights reserved.
 //
 
-#include <iostream>
+#include <boost/asio.hpp>
+#include "clock.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    boost::asio::io_service io;
+    boost::asio::deadline_timer timer(io);
+    Clock clock = Clock(timer);
+    
+    io.run();
+    
     return 0;
 }
+
