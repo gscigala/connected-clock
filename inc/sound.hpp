@@ -14,20 +14,20 @@
 class Sound
 {
 public:
-    Sound(std::string type, int level);
+    Sound(std::string path, int level);
     
-    void playHour(int hours);
-    void playOneQuarter(void);
-    void playHalf(void);
-    void playThreeQuarter(void);
+    const void playHour(int hours);
+    const void playOneQuarter(void);
+    const void playHalf(void);
+    const void playThreeQuarter(void);
     
 private:
     
-    std::string mType;
-    int mLevel;
+    const std::string mPath;
+    const float mVolume;
     
-    void playStrike(void);
-    void play(std::string path);
+    const void playStrike(void);
+    const void play(std::string path);
     
 };
 

@@ -16,8 +16,7 @@ using namespace boost::posix_time;
 
 Clock::Clock(Sound &sound, deadline_timer &timer):
     mSound(sound),
-    mTimer(timer),
-    mPreviousSeconds(0)
+    mTimer(timer)
 {
     BOOST_LOG_TRIVIAL(debug) << "Hello from Clock constructor";
     wait();
@@ -33,9 +32,6 @@ void Clock::timeout(const boost::system::error_code &e) {
     if (e)
         return;
     
-    //Restart timer
-    wait();
-    
     const ptime now = second_clock::local_time();
     const int hours = (int) now.time_of_day().hours();
     const int minutes = (int) now.time_of_day().minutes();
@@ -44,7 +40,7 @@ void Clock::timeout(const boost::system::error_code &e) {
     BOOST_LOG_TRIVIAL(debug) << "Timeout, it is "
         << hours << ":" << minutes << ":" << seconds;
     
-    if((seconds == 0) && (mPreviousSeconds != seconds))
+    if(seconds == 0)
     {
         BOOST_LOG_TRIVIAL(debug) << "New minute : " << minutes;
         
@@ -71,5 +67,6 @@ void Clock::timeout(const boost::system::error_code &e) {
         }
     }
     
-    mPreviousSeconds = seconds;
+    //Restart timer
+    wait();
 }

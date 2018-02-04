@@ -41,8 +41,8 @@ int main(int argc, const char * argv[]) {
         po::options_description desc("Options");
         desc.add_options()
         ("help,h", "print help messages")
-        ("type,t", po::value<std::string>()->required(), "set clock type")
-        ("level,l", po::value<int>()->required(), "set sound level");
+        ("path,p", po::value<std::string>()->required(), "[string] set clock ressources path")
+        ("volume,v", po::value<int>()->required(), "[int] set sound volume");
         
         po::variables_map vm;
         try
@@ -69,7 +69,7 @@ int main(int argc, const char * argv[]) {
             return ERROR_IN_COMMAND_LINE;
         }
         
-        Sound sound = Sound(vm["type"].as<std::string>(), vm["level"].as<int>());
+        Sound sound = Sound(vm["path"].as<std::string>(), vm["volume"].as<int>());
         
         io_service io;
         deadline_timer timer(io);

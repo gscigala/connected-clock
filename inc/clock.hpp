@@ -21,7 +21,6 @@ private:
     
     Sound &mSound;
     deadline_timer &mTimer;
-    int mPreviousSeconds;
     
     void wait(void);
     void timeout(const boost::system::error_code &e);

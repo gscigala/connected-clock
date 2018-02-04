@@ -6,17 +6,22 @@
 //  Copyright © 2018 Silence. All rights reserved.
 //
 
+#include <unistd.h>
 #include <boost/log/trivial.hpp>
 #include "sound.hpp"
 
-Sound::Sound(std::string type, int level): mType(type), mLevel(level)
+Sound::Sound(std::string path, int volume): mPath(path), mVolume(volume/100.0)
 {
-    BOOST_LOG_TRIVIAL(debug) << "Hello from Sound constructor";
+    BOOST_LOG_TRIVIAL(debug) << "Hello from Sound constructor,"
+    << "path = " << mPath
+    << ", level = " << mVolume;
 }
 
-void Sound::playHour(int hours)
+const void Sound::playHour(int hours)
 {
     BOOST_LOG_TRIVIAL(info) << "New hour : " << hours;
+    
+    play(mPath + "/hour.ogg");
     
     int tick;
     
@@ -33,6 +38,7 @@ void Sound::playHour(int hours)
         tick = hours - 12;
     }
     
+    BOOST_LOG_TRIVIAL(info) << "Play " << tick << " strikes";
     
     while(tick > 0)
     {
@@ -41,27 +47,33 @@ void Sound::playHour(int hours)
     }
 }
 
-void Sound::playOneQuarter(void)
+const void Sound::playOneQuarter(void)
 {
     BOOST_LOG_TRIVIAL(info) << "One quarter";
+    play(mPath + "/quarter.ogg");
 }
 
-void Sound::playHalf(void)
+const void Sound::playHalf(void)
 {
     BOOST_LOG_TRIVIAL(info) << "Half hour";
+        play(mPath + "/half.pgg");
 }
 
-void Sound::playThreeQuarter(void)
+const void Sound::playThreeQuarter(void)
 {
     BOOST_LOG_TRIVIAL(info) << "Three quarter";
+    play(mPath + "/3quarter.ogg");
 }
 
-void Sound::playStrike(void)
+const void Sound::playStrike(void)
 {
     BOOST_LOG_TRIVIAL(info) << "Strike";
+    play(mPath + "/strike.ogg");
 }
 
-void Sound::play(std::string path)
+const void Sound::play(std::string path)
 {
-
+    std::string cmd = "gst-launch-1.0 filesrc location=" + path + " ! oggdemux ! vorbisdec ! audioconvert ! volume volume=" + std::to_string(mVolume) + " ! audioresample ! autoaudiosink";
+    
+    system(cmd.c_str());
 }
