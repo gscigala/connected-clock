@@ -10,7 +10,6 @@
 #include <boost/log/expressions.hpp>
 #include "boost/program_options.hpp"
 #include <boost/asio.hpp>
-#include <iostream>
 #include "clock.hpp"
 
 namespace logging = boost::log;
@@ -53,8 +52,8 @@ int main(int argc, const char * argv[]) {
              */
             if ( vm.count("help")  )
             {
-                std::cout << "Basic Command Line Parameter App" << std::endl
-                << desc << std::endl;
+                BOOST_LOG_TRIVIAL(info) << "Basic Command Line Parameter App";
+                BOOST_LOG_TRIVIAL(info) <<  desc << std::endl;
                 return SUCCESS;
             }
             
@@ -64,8 +63,8 @@ int main(int argc, const char * argv[]) {
         
         catch(po::error& e)
         {
-            std::cerr << "ERROR: " << e.what() << std::endl << std::endl;
-            std::cerr << desc << std::endl;
+            BOOST_LOG_TRIVIAL(error) << "ERROR: " << e.what() << std::endl << std::endl;
+            BOOST_LOG_TRIVIAL(error) << desc << std::endl;
             return ERROR_IN_COMMAND_LINE;
         }
         
@@ -77,8 +76,8 @@ int main(int argc, const char * argv[]) {
     }
     catch(std::exception& e)
     {
-        std::cerr << "Unhandled Exception reached the top of main: "
-        << e.what() << ", application will now exit" << std::endl;
+        BOOST_LOG_TRIVIAL(error) << "Unhandled Exception reached the top of main: "
+        << e.what() << ", application will now exit";
         return ERROR_UNHANDLED_EXCEPTION;
     }
     
