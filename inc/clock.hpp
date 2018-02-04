@@ -9,12 +9,14 @@
 #ifndef clock_h
 #define clock_h
 
+using namespace boost::asio;
+
 class Clock {
 public:
-    Clock(boost::asio::deadline_timer &timer);
+    Clock(deadline_timer &timer);
     
 private:
-    boost::asio::deadline_timer &mTimer;
+    deadline_timer &mTimer;
     int mPreviousSeconds;
     
     void wait(void);

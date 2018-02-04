@@ -12,7 +12,9 @@
 #include <boost/log/trivial.hpp>
 #include "clock.hpp"
 
-Clock::Clock(boost::asio::deadline_timer &timer): mTimer(timer), mPreviousSeconds(0)
+using namespace boost::posix_time;
+
+Clock::Clock(deadline_timer &timer): mTimer(timer), mPreviousSeconds(0)
 {
     BOOST_LOG_TRIVIAL(debug) << "Hello from Clock constructor";
     wait();
@@ -20,8 +22,8 @@ Clock::Clock(boost::asio::deadline_timer &timer): mTimer(timer), mPreviousSecond
 
 void Clock::wait(void)
 {
-    mTimer.expires_from_now(boost::posix_time::millisec(500));
-    mTimer.async_wait(boost::bind(&Clock::timeout, this, boost::asio::placeholders::error));
+    mTimer.expires_from_now(millisec(500));
+    mTimer.async_wait(boost::bind(&Clock::timeout, this, placeholders::error));
 }
 
 void Clock::timeout(const boost::system::error_code &e) {
@@ -31,12 +33,13 @@ void Clock::timeout(const boost::system::error_code &e) {
     //Restart timer
     wait();
     
-    const boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
+    const ptime now = second_clock::local_time();
     const int hours = (int) now.time_of_day().hours();
     const int minutes = (int) now.time_of_day().minutes();
     const int seconds = (int) now.time_of_day().seconds();
     
-    BOOST_LOG_TRIVIAL(debug) << "Timeout, it is " << hours << ":" << minutes << ":" << seconds;
+    BOOST_LOG_TRIVIAL(debug) << "Timeout, it is "
+        << hours << ":" << minutes << ":" << seconds;
     
     if((seconds == 0) && (mPreviousSeconds != seconds))
     {
