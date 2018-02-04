@@ -14,7 +14,10 @@
 
 using namespace boost::posix_time;
 
-Clock::Clock(deadline_timer &timer): mTimer(timer), mPreviousSeconds(0)
+Clock::Clock(Sound &sound, deadline_timer &timer):
+    mSound(sound),
+    mTimer(timer),
+    mPreviousSeconds(0)
 {
     BOOST_LOG_TRIVIAL(debug) << "Hello from Clock constructor";
     wait();
@@ -48,19 +51,19 @@ void Clock::timeout(const boost::system::error_code &e) {
         switch (minutes) {
             case 0:
             case 5:
-                newHour(hours);
+                mSound.playHour(hours);
                 break;
                 
             case 15:
-                oneQuarter();
+                mSound.playOneQuarter();
                 break;
                 
             case 30:
-                oneHalf();
+                mSound.playHalf();
                 break;
                 
             case 45:
-                threeQuarter();
+                mSound.playThreeQuarter();
                 break;
                 
             default:
@@ -69,51 +72,4 @@ void Clock::timeout(const boost::system::error_code &e) {
     }
     
     mPreviousSeconds = seconds;
-}
-
-void Clock::newHour(const int hours)
-{
-    BOOST_LOG_TRIVIAL(info) << "New hour : " << hours;
-    
-    int tick;
-
-    if(hours == 0)
-    {
-        tick = 12;
-    }
-    else if(hours <= 12)
-    {
-        tick = hours;
-    }
-    else
-    {
-        tick = hours - 12;
-    }
-    
-
-    while(tick > 0)
-    {
-        hourBell();
-        tick--;
-    }
-}
-
-void Clock::oneQuarter(void)
-{
-    BOOST_LOG_TRIVIAL(info) << "One quarter";
-}
-
-void Clock::oneHalf(void)
-{
-    BOOST_LOG_TRIVIAL(info) << "One half";
-}
-
-void Clock::threeQuarter(void)
-{
-    BOOST_LOG_TRIVIAL(info) << "Three quarter";
-}
-
-void Clock::hourBell(void)
-{
-    BOOST_LOG_TRIVIAL(info) << "Hour bell";
 }

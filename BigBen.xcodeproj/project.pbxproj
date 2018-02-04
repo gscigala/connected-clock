@@ -10,6 +10,7 @@
 		F00CB96C20272DA700681E0D /* libboost_log_setup-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00CB94820272DA500681E0D /* libboost_log_setup-mt.dylib */; };
 		F00CB97320272DA700681E0D /* libboost_system-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00CB94F20272DA500681E0D /* libboost_system-mt.dylib */; };
 		F00CB97A20272DA700681E0D /* libboost_timer-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00CB95620272DA600681E0D /* libboost_timer-mt.dylib */; };
+		F0619FA2202737B70059CF22 /* sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0619FA0202737B70059CF22 /* sound.cpp */; settings = {COMPILER_FLAGS = "-DBOOST_LOG_DYN_LINK"; }; };
 		F070E8CA202723C00091F41C /* libboost_program_options-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F070E8C9202723C00091F41C /* libboost_program_options-mt.dylib */; };
 		F09052EC20261D8400B5CDF0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F09052EB20261D8400B5CDF0 /* main.cpp */; settings = {COMPILER_FLAGS = "-DBOOST_LOG_DYN_LINK"; }; };
 		F09052F420261DC800B5CDF0 /* clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F09052F220261DC800B5CDF0 /* clock.cpp */; settings = {COMPILER_FLAGS = "-DBOOST_LOG_DYN_LINK"; }; };
@@ -67,6 +68,8 @@
 		F00CB96220272DA600681E0D /* libboost_test_exec_monitor-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_test_exec_monitor-mt.a"; path = "../../../../../opt/local/lib/libboost_test_exec_monitor-mt.a"; sourceTree = "<group>"; };
 		F00CB96320272DA600681E0D /* libboost_math_tr1f-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_math_tr1f-mt.dylib"; path = "../../../../../opt/local/lib/libboost_math_tr1f-mt.dylib"; sourceTree = "<group>"; };
 		F00CB96420272DA600681E0D /* libboost_stacktrace_addr2line-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_stacktrace_addr2line-mt.dylib"; path = "../../../../../opt/local/lib/libboost_stacktrace_addr2line-mt.dylib"; sourceTree = "<group>"; };
+		F0619FA0202737B70059CF22 /* sound.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sound.cpp; sourceTree = "<group>"; };
+		F0619FA1202737B70059CF22 /* sound.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = sound.hpp; sourceTree = "<group>"; };
 		F070E8C9202723C00091F41C /* libboost_program_options-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_program_options-mt.dylib"; path = "../../../../../opt/local/lib/libboost_program_options-mt.dylib"; sourceTree = "<group>"; };
 		F09052E820261D8400B5CDF0 /* BigBen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BigBen; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09052EB20261D8400B5CDF0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 			children = (
 				F09052EB20261D8400B5CDF0 /* main.cpp */,
 				F09052F220261DC800B5CDF0 /* clock.cpp */,
+				F0619FA0202737B70059CF22 /* sound.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				F09052F320261DC800B5CDF0 /* clock.hpp */,
+				F0619FA1202737B70059CF22 /* sound.hpp */,
 			);
 			path = inc;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F09052F420261DC800B5CDF0 /* clock.cpp in Sources */,
+				F0619FA2202737B70059CF22 /* sound.cpp in Sources */,
 				F09052EC20261D8400B5CDF0 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@
 #include <boost/log/expressions.hpp>
 #include "boost/program_options.hpp"
 #include <boost/asio.hpp>
+#include "sound.hpp"
 #include "clock.hpp"
 
 namespace logging = boost::log;
@@ -53,7 +54,7 @@ int main(int argc, const char * argv[]) {
             if ( vm.count("help")  )
             {
                 BOOST_LOG_TRIVIAL(info) << "Basic Command Line Parameter App";
-                BOOST_LOG_TRIVIAL(info) <<  desc << std::endl;
+                BOOST_LOG_TRIVIAL(info) <<  desc;
                 return SUCCESS;
             }
             
@@ -63,14 +64,16 @@ int main(int argc, const char * argv[]) {
         
         catch(po::error& e)
         {
-            BOOST_LOG_TRIVIAL(error) << "ERROR: " << e.what() << std::endl << std::endl;
-            BOOST_LOG_TRIVIAL(error) << desc << std::endl;
+            BOOST_LOG_TRIVIAL(error) << "ERROR: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << desc;
             return ERROR_IN_COMMAND_LINE;
         }
         
+        Sound sound = Sound(vm["type"].as<std::string>(), vm["level"].as<int>());
+        
         io_service io;
         deadline_timer timer(io);
-        Clock clock = Clock(timer);
+        Clock clock = Clock(sound, timer);
         
         io.run();
     }

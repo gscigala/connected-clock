@@ -9,25 +9,22 @@
 #ifndef clock_h
 #define clock_h
 
+#include "sound.hpp"
+
 using namespace boost::asio;
 
 class Clock {
 public:
-    Clock(deadline_timer &timer);
+    Clock(Sound &sound, deadline_timer &timer);
     
 private:
+    
+    Sound &mSound;
     deadline_timer &mTimer;
     int mPreviousSeconds;
     
     void wait(void);
     void timeout(const boost::system::error_code &e);
-    
-    void newHour(const int hours);
-    void oneQuarter(void);
-    void oneHalf(void);
-    void threeQuarter(void);
-    
-    void hourBell(void);
 };
 
 
