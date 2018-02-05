@@ -73,7 +73,7 @@ const void Sound::playStrike(void)
 
 const void Sound::play(std::string path)
 {
-    std::string cmd = "gst-launch-1.0 filesrc location=" + path + " ! oggdemux ! vorbisdec ! audioconvert ! volume volume=" + std::to_string(mVolume) + " ! audioresample ! autoaudiosink";
+    std::string cmd = "gst-launch-1.0 filesrc location=" + path + " ! oggdemux ! vorbisdec ! audioconvert ! volume volume=" + std::to_string(mVolume) + " ! audioresample ! alsasink";
     
     system(cmd.c_str());
 }
