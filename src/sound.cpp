@@ -56,7 +56,7 @@ const void Sound::playOneQuarter(void)
 const void Sound::playHalf(void)
 {
     BOOST_LOG_TRIVIAL(info) << "Half hour";
-        play(mPath + "/half.pgg");
+        play(mPath + "/half.ogg");
 }
 
 const void Sound::playThreeQuarter(void)
