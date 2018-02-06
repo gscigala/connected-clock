@@ -6,9 +6,7 @@ Build
 
 This project use Meson as build system: http://mesonbuild.com/index.html
 
-`$ meson obj`
-
-`$ cd obj`
+`$ meson obj && cd obj`
 
 `$ ninja`
 
