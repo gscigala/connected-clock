@@ -9,26 +9,28 @@
 #ifndef sound_hpp
 #define sound_hpp
 
-#include <string>
+#include <gst/gst.h>
+#include <glib.h>
 
 class Sound
 {
 public:
     Sound(std::string path, int level);
     
-    const void playHour(int hours);
-    const void playOneQuarter(void);
-    const void playHalf(void);
-    const void playThreeQuarter(void);
+    void playHour(int hours);
+    void playOneQuarter(void);
+    void playHalf(void);
+    void playThreeQuarter(void);
     
 private:
     
     const std::string mPath;
-    const float mVolume;
-    
-    const void playStrike(void);
-    const void play(std::string path);
-    
+
+    GMainLoop *mLoop;
+    GstElement *mPipeline, *mSrc;
+
+    void playStrike(void);
+    void play(std::string path);
 };
 
 #endif /* sound_hpp */
