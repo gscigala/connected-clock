@@ -13,6 +13,8 @@
 #include "sound.hpp"
 #include "clock.hpp"
 
+#define UNUSED(identifier) (void)identifier
+
 namespace logging = boost::log;
 using namespace boost::asio;
 namespace
@@ -74,6 +76,7 @@ int main(int argc, const char * argv[]) {
         io_service io;
         deadline_timer timer(io);
         Clock clock = Clock(sound, timer);
+        UNUSED(clock);
         
         io.run();
     }
