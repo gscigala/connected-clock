@@ -45,7 +45,7 @@ flycheck_*.el
 .dir-locals.el
 
 # Build dir
-obj
+build/*
 
 # Ninja
 .ninja*
