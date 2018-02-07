@@ -19,8 +19,6 @@ namespace logging = boost::log;
 using namespace boost::asio;
 namespace
 {
-    const logging::trivial::severity_level LOG_LEVEL = logging::trivial::debug;
-    
     const size_t ERROR_IN_COMMAND_LINE = 1;
     const size_t SUCCESS = 0;
     const size_t ERROR_UNHANDLED_EXCEPTION = 2;
@@ -28,12 +26,6 @@ namespace
 } // namespace
 
 int main(int argc, const char * argv[]) {
-
-    // Set log level
-    logging::core::get()->set_filter
-    (
-     logging::trivial::severity >= LOG_LEVEL
-     );
     
     try
     {
@@ -42,9 +34,11 @@ int main(int argc, const char * argv[]) {
         namespace po = boost::program_options;
         po::options_description desc("Options");
         desc.add_options()
-        ("help,h", "print help messages")
         ("path,p", po::value<std::string>()->required(), "[string] set clock ressources path")
-        ("volume,v", po::value<int>()->required(), "[int] set sound volume");
+        ("volume,v", po::value<int>()->required(), "[int] set sound volume")
+        ("debug,d", "display debug log")
+        ("trace,t", "display trace log")
+        ("help,h", "print help messages");
         
         po::variables_map vm;
         try
@@ -53,9 +47,9 @@ int main(int argc, const char * argv[]) {
             
             /** --help option
              */
-            if ( vm.count("help")  )
+            if(vm.count("help"))
             {
-                BOOST_LOG_TRIVIAL(info) << "Basic Command Line Parameter App";
+                BOOST_LOG_TRIVIAL(info) << "Connected clock program";
                 BOOST_LOG_TRIVIAL(info) <<  desc;
                 return SUCCESS;
             }
@@ -69,6 +63,26 @@ int main(int argc, const char * argv[]) {
             BOOST_LOG_TRIVIAL(error) << "ERROR: " << e.what();
             BOOST_LOG_TRIVIAL(error) << desc;
             return ERROR_IN_COMMAND_LINE;
+        }
+
+        // Set log level
+        if(vm.count("trace"))
+        {
+            logging::core::get()->set_filter(
+                logging::trivial::severity >= logging::trivial::trace
+                );
+        }
+        else if(vm.count("debug"))
+        {
+            logging::core::get()->set_filter(
+                logging::trivial::severity >= logging::trivial::debug
+                );
+        }
+        else
+        {
+            logging::core::get()->set_filter(
+                logging::trivial::severity >= logging::trivial::info
+                );
         }
         
         Sound sound = Sound(vm["path"].as<std::string>(), vm["volume"].as<int>());
