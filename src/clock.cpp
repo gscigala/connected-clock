@@ -18,7 +18,7 @@ Clock::Clock(Sound &sound, deadline_timer &timer):
     mSound(sound),
     mTimer(timer)
 {
-    BOOST_LOG_TRIVIAL(debug) << "Hello from Clock constructor";
+    BOOST_LOG_TRIVIAL(trace) << "Hello from Clock constructor";
     wait();
 }
 
@@ -37,12 +37,12 @@ void Clock::timeout(const boost::system::error_code &e) {
     const int minutes = (int) now.time_of_day().minutes();
     const int seconds = (int) now.time_of_day().seconds();
     
-    BOOST_LOG_TRIVIAL(debug) << "Timeout, it is "
+    BOOST_LOG_TRIVIAL(trace) << "Timeout, it is "
         << hours << ":" << minutes << ":" << seconds;
     
     if(seconds == 0)
     {
-        BOOST_LOG_TRIVIAL(debug) << "New minute : " << minutes;
+        BOOST_LOG_TRIVIAL(trace) << "New minute : " << minutes;
         
         switch (minutes) {
             case 0:

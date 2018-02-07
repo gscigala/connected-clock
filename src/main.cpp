@@ -19,7 +19,7 @@ namespace logging = boost::log;
 using namespace boost::asio;
 namespace
 {
-    const logging::trivial::severity_level LOG_LEVEL = logging::trivial::info;
+    const logging::trivial::severity_level LOG_LEVEL = logging::trivial::debug;
     
     const size_t ERROR_IN_COMMAND_LINE = 1;
     const size_t SUCCESS = 0;

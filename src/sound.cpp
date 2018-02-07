@@ -58,7 +58,7 @@ static void on_pad_added (GstElement *element, GstPad *pad, gpointer data)
 
 Sound::Sound(std::string path, int volume): mPath(path)
 {
-    BOOST_LOG_TRIVIAL(debug) << "Hello from Sound constructor,"
+    BOOST_LOG_TRIVIAL(trace) << "Hello from Sound constructor,"
                              << "path = " << mPath
                              << ", volume = " << volume << "%";
 
