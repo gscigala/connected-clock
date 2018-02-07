@@ -79,6 +79,8 @@ int main(int argc, const char * argv[]) {
         UNUSED(clock);
         
         io.run();
+
+        BOOST_LOG_TRIVIAL(info) << "The connected clock has started !";
     }
     catch(std::exception& e)
     {
