@@ -77,10 +77,10 @@ int main(int argc, const char * argv[]) {
         deadline_timer timer(io);
         Clock clock = Clock(sound, timer);
         UNUSED(clock);
-        
-        io.run();
 
         BOOST_LOG_TRIVIAL(info) << "The connected clock has started !";
+        
+        io.run();
     }
     catch(std::exception& e)
     {
