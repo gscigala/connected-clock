@@ -1,0 +1,10 @@
+[Unit]
+Description=Manage connected clock
+
+[Service]
+User=guillaume
+ExecStart=/usr/local/bin/connected-clock -p /etc/connected-clock/bigben -v 5
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
