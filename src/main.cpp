@@ -48,7 +48,7 @@ int main(int argc, const char * argv[]) {
         po::options_description desc("Options");
         desc.add_options()
         ("path,p", po::value<std::string>()->required(), "[string] set clock ressources path")
-        ("volume,v", po::value<int>()->required(), "[int] set sound volume")
+        ("volume,v", po::value<int>()->required(), "[int] set sound volume in percent")
         ("debug,d", "display debug log")
         ("trace,t", "display trace log")
         ("help,h", "print help messages");
