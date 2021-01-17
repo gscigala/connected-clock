@@ -20,7 +20,7 @@
  ******************************************************************************/
 
 #include <boost/log/trivial.hpp>
-#include "sound.hpp"
+#include "sound.h"
 
 static gboolean bus_call (GstBus *bus, GstMessage *msg, gpointer data)
 {

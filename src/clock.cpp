@@ -23,7 +23,7 @@
 #include <boost/asio.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/log/trivial.hpp>
-#include "clock.hpp"
+#include "clock.h"
 
 using namespace boost::posix_time;
 

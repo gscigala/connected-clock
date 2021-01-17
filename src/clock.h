@@ -19,10 +19,10 @@
  **
  ******************************************************************************/
 
-#ifndef clock_hpp
-#define clock_hpp
+#ifndef CLOCK_H
+#define CLOCK_H
 
-#include "sound.hpp"
+#include "sound.h"
 
 using namespace boost::asio;
 
@@ -50,5 +50,5 @@ private:
 };
 
 
-#endif /* clock_hpp */
+#endif /* CLOCK_H */
 

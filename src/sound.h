@@ -19,8 +19,8 @@
  **
  ******************************************************************************/
 
-#ifndef sound_hpp
-#define sound_hpp
+#ifndef SOUND_H
+#define SOUND_H
 
 #include <gst/gst.h>
 #include <glib.h>
@@ -67,4 +67,4 @@ private:
     void play(std::string path);
 };
 
-#endif /* sound_hpp */
+#endif /* SOUND_H */
