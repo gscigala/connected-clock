@@ -19,12 +19,12 @@
  **
  ******************************************************************************/
 
-#include <boost/log/core.hpp>
-#include <boost/log/trivial.hpp>
-#include <boost/log/expressions.hpp>
-#include "boost/program_options.hpp"
 #include <boost/asio.hpp>
-#include "sound.h"
+#include <boost/log/core.hpp>
+#include <boost/log/expressions.hpp>
+#include <boost/log/trivial.hpp>
+#include "boost/program_options.hpp"
+
 #include "clock.h"
 
 #define UNUSED(identifier) (void)identifier

@@ -22,8 +22,10 @@
 #ifndef SOUND_H
 #define SOUND_H
 
-#include <gst/gst.h>
+#include <string>
+
 #include <glib.h>
+#include <gst/gst.h>
 
 /* Sound class
 ** Play audio output
