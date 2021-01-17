@@ -18,20 +18,7 @@ Dependencies
 
 Connected clock program uses GStreamer for audio output and Boost libraries for timer, program options and log. 
 
-### Boost
-
-To install Boost:
-
-`$ sudo apt install libboost-dev-all`
-
 For more informations about Boost: http://www.boost.org/
-
-### GStreamer
-
-To install GStreamer:
-
-`$ sudo apt install gstreamer-1.0`
-
 For more informations about GStreamer: http://gstreamer.freedesktop.org/
 
 Build
