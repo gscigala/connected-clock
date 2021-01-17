@@ -30,43 +30,41 @@
 /* Sound class
 ** Play audio output
 */
-class Sound
-{
-public:
-    /* Constructor */
-    Sound(std::string path, int level);
+class Sound {
+    public:
+	/* Constructor */
+	Sound(std::string path, int level);
 
-    /* Play hour melody with strikes */
-    void playHour(int hours);
+	/* Play hour melody with strikes */
+	void playHour(int hours);
 
-    /* Play one quarter melody */
-    void playOneQuarter(void);
+	/* Play one quarter melody */
+	void playOneQuarter(void);
 
-    /* Play half hour melody */
-    void playHalf(void);
+	/* Play half hour melody */
+	void playHalf(void);
 
-    /* Play three quarter melody */
-    void playThreeQuarter(void);
-    
-private:
+	/* Play three quarter melody */
+	void playThreeQuarter(void);
 
-    /* Data root location */
-    const std::string mPath;
+    private:
+	/* Data root location */
+	const std::string mPath;
 
-    /* GStreamer loop */
-    GMainLoop *mLoop;
+	/* GStreamer loop */
+	GMainLoop *mLoop;
 
-    /* GStreamer pipeline */
-    GstElement *mPipeline;
+	/* GStreamer pipeline */
+	GstElement *mPipeline;
 
-    /* GStreamer source element */
-    GstElement *mSrc;
+	/* GStreamer source element */
+	GstElement *mSrc;
 
-    /* Play one strike */
-    void playStrike(void);
+	/* Play one strike */
+	void playStrike(void);
 
-    /* Play OGG file located with the path variable */
-    void play(std::string path);
+	/* Play OGG file located with the path variable */
+	void play(std::string path);
 };
 
 #endif /* SOUND_H */

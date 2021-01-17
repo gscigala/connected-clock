@@ -30,25 +30,22 @@ using namespace boost::asio;
 ** Watch current time and control audio output
 */
 class Clock {
-public:
-    /* Constructor */
-    Clock(Sound &sound, deadline_timer &timer);
-    
-private:
+    public:
+	/* Constructor */
+	Clock(Sound &sound, deadline_timer &timer);
 
-    /* Sound object */
-    Sound &mSound;
+    private:
+	/* Sound object */
+	Sound &mSound;
 
-    /* Timer to handle new minutes */
-    deadline_timer &mTimer;
+	/* Timer to handle new minutes */
+	deadline_timer &mTimer;
 
-    /* Start new timer */
-    void wait(void);
+	/* Start new timer */
+	void wait(void);
 
-    /* Check current time and send audio controls */
-    void timeout(const boost::system::error_code &e);
+	/* Check current time and send audio controls */
+	void timeout(const boost::system::error_code &e);
 };
 
-
 #endif /* CLOCK_H */
-
