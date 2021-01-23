@@ -33,7 +33,7 @@ using namespace boost::asio;
 */
 class Clock {
     public:
-	Clock(Sound &sound, deadline_timer &timer, bool tick);
+	Clock(Sound &sound, bool tick, deadline_timer &timer);
 
 	virtual ~Clock() = 0;
 
@@ -41,12 +41,12 @@ class Clock {
 	/* Sound object */
 	Sound &mSound;
 
+	/* Status of tick sound every second */
+	bool mTick;
+
     private:
 	/* Timer to handle new minutes */
 	deadline_timer &mTimer;
-
-	/* Status of tick sound every second */
-	bool mTick;
 
 	/* Start new timer */
 	void wait(void);

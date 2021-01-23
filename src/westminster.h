@@ -29,7 +29,7 @@
 */
 class Westminster : public Clock {
     public:
-	Westminster(Sound &sound, deadline_timer &timer, bool tick);
+	Westminster(Sound &sound, bool tick, deadline_timer &timer);
 	~Westminster();
 
     private:

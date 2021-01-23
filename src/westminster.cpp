@@ -5,8 +5,8 @@
 
 using namespace boost::posix_time;
 
-Westminster::Westminster(Sound &sound, deadline_timer &timer, bool tick)
-	: Clock(sound, timer, tick)
+Westminster::Westminster(Sound &sound, bool tick, deadline_timer &timer)
+  : Clock(sound, tick, timer)
 {
 }
 

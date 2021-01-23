@@ -1,6 +1,6 @@
 project('connected-clock', 'cpp')
 
-src = ['src/main.cpp', 'src/sound.cpp', 'src/clock.cpp', 'src/westminster.cpp']
+src = ['src/main.cpp', 'src/sound.cpp', 'src/clock.cpp', 'src/cuckoo.cpp', 'src/westminster.cpp']
 incdir = include_directories('src')
 
 boost_dep = dependency('boost', modules : ['log', 'program_options', 'system'])

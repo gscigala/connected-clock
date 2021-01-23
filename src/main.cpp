@@ -25,6 +25,7 @@
 #include <boost/log/expressions.hpp>
 #include <boost/log/trivial.hpp>
 
+#include "cuckoo.h"
 #include "westminster.h"
 
 #define UNUSED(identifier) (void)identifier
@@ -69,7 +70,8 @@ int main(int argc, const char *argv[])
 				return SUCCESS;
 			}
 
-			if (vm["clock"].as<std::string>() != "westminster") {
+			if ((vm["clock"].as<std::string>() != "cuckoo")
+				&& (vm["clock"].as<std::string>() != "westminster")) {
 				throw std::invalid_argument(
 					"Unknown clock type");
 			}
@@ -108,8 +110,11 @@ int main(int argc, const char *argv[])
 
 		Clock *clock;
 		if (vm["clock"].as<std::string>() == "westminster") {
-			clock = new Westminster(sound, timer,
-					    !(vm.count("no-tick") >= 1));
+			clock = new Westminster(
+				sound, !(vm.count("no-tick") >= 1), timer);
+		} else if (vm["clock"].as<std::string>() == "cuckoo") {
+			clock = new Cuckoo(sound, !(vm.count("no-tick") >= 1),
+					   timer);
 		}
 		UNUSED(clock);
 

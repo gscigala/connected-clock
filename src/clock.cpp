@@ -28,8 +28,8 @@
 
 using namespace boost::posix_time;
 
-Clock::Clock(Sound &sound, deadline_timer &timer, bool tick)
-	: mSound(sound), mTimer(timer), mTick(tick)
+Clock::Clock(Sound &sound, bool tick, deadline_timer &timer)
+	: mSound(sound), mTick(tick), mTimer(timer)
 {
 	BOOST_LOG_TRIVIAL(trace) << "Hello from Clock constructor";
 	BOOST_LOG_TRIVIAL(info) << "Tick = " << mTick;
@@ -64,7 +64,7 @@ void Clock::timeout(const boost::system::error_code &e)
 				 << ":" << seconds;
 
 	if (seconds != lastSeconds) {
-		BOOST_LOG_TRIVIAL(trace) << "New second : " << minutes;
+		BOOST_LOG_TRIVIAL(trace) << "New second : " << seconds;
 		lastSeconds = seconds;
 		tick();
 	}
