@@ -35,17 +35,8 @@ class Sound {
 	/* Constructor */
 	Sound(std::string path, int level);
 
-	/* Play hour melody with strikes */
-	void playHour(int hours);
-
-	/* Play one quarter melody */
-	void playOneQuarter(void);
-
-	/* Play half hour melody */
-	void playHalf(void);
-
-	/* Play three quarter melody */
-	void playThreeQuarter(void);
+	/* Play OGG file located with the path variable */
+	void play(std::string path);
 
     private:
 	/* Data root location */
@@ -59,12 +50,6 @@ class Sound {
 
 	/* GStreamer source element */
 	GstElement *mSrc;
-
-	/* Play one strike */
-	void playStrike(void);
-
-	/* Play OGG file located with the path variable */
-	void play(std::string path);
 };
 
 #endif /* SOUND_H */

@@ -28,15 +28,21 @@
 
 using namespace boost::posix_time;
 
-Clock::Clock(Sound &sound, deadline_timer &timer) : mSound(sound), mTimer(timer)
+Clock::Clock(Sound &sound, deadline_timer &timer, bool tick)
+	: mSound(sound), mTimer(timer), mTick(tick)
 {
 	BOOST_LOG_TRIVIAL(trace) << "Hello from Clock constructor";
+	BOOST_LOG_TRIVIAL(info) << "Tick = " << mTick;
 	wait();
+}
+
+Clock::~Clock()
+{
 }
 
 void Clock::wait(void)
 {
-	mTimer.expires_from_now(millisec(500));
+	mTimer.expires_from_now(millisec(10));
 	mTimer.async_wait(
 		boost::bind(&Clock::timeout, this, placeholders::error));
 }
@@ -51,28 +57,41 @@ void Clock::timeout(const boost::system::error_code &e)
 	const int minutes = (int)now.time_of_day().minutes();
 	const int seconds = (int)now.time_of_day().seconds();
 
+	static int lastSeconds = -1;
+	static int lastMinutes = -1;
+
 	BOOST_LOG_TRIVIAL(trace) << "Timeout, it is " << hours << ":" << minutes
 				 << ":" << seconds;
 
-	if (seconds == 0) {
+	if (seconds != lastSeconds) {
+		BOOST_LOG_TRIVIAL(trace) << "New second : " << minutes;
+		lastSeconds = seconds;
+		tick();
+	}
+
+	if (minutes != lastMinutes) {
+		lastMinutes = minutes;
 		BOOST_LOG_TRIVIAL(trace) << "New minute : " << minutes;
 
 		switch (minutes) {
 		case 0:
+			hour();
+			break;
+
 		case 5:
-			mSound.playHour(hours);
+			fiveMinutes();
 			break;
 
 		case 15:
-			mSound.playOneQuarter();
+			oneQuarter();
 			break;
 
 		case 30:
-			mSound.playHalf();
+			half();
 			break;
 
 		case 45:
-			mSound.playThreeQuarter();
+			threeQuarter();
 			break;
 
 		default:

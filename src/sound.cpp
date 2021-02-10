@@ -114,60 +114,13 @@ Sound::Sound(std::string path, int volume) : mPath(path)
 	g_signal_connect(demux, "pad-added", G_CALLBACK(on_pad_added), dec);
 }
 
-void Sound::playHour(int hours)
-{
-	BOOST_LOG_TRIVIAL(info) << "New hour : " << hours;
-
-	play(mPath + "/hour.ogg");
-
-	int tick;
-
-	if (hours == 0) {
-		tick = 12;
-	} else if (hours <= 12) {
-		tick = hours;
-	} else {
-		tick = hours - 12;
-	}
-
-	BOOST_LOG_TRIVIAL(info) << "Play " << tick << " strikes";
-
-	while (tick > 0) {
-		playStrike();
-		tick--;
-	}
-}
-
-void Sound::playOneQuarter(void)
-{
-	BOOST_LOG_TRIVIAL(info) << "One quarter";
-	play(mPath + "/quarter.ogg");
-}
-
-void Sound::playHalf(void)
-{
-	BOOST_LOG_TRIVIAL(info) << "Half hour";
-	play(mPath + "/half.ogg");
-}
-
-void Sound::playThreeQuarter(void)
-{
-	BOOST_LOG_TRIVIAL(info) << "Three quarter";
-	play(mPath + "/3quarter.ogg");
-}
-
-void Sound::playStrike(void)
-{
-	BOOST_LOG_TRIVIAL(info) << "Strike";
-	play(mPath + "/strike.ogg");
-}
-
 void Sound::play(std::string path)
 {
-	BOOST_LOG_TRIVIAL(debug) << "Play : " << path;
-
 	/* Set Path */
-	g_object_set(G_OBJECT(mSrc), "location", path.c_str(), NULL);
+	std::string completePath = mPath + "/" + path;
+	g_object_set(G_OBJECT(mSrc), "location", completePath.c_str(), NULL);
+
+	BOOST_LOG_TRIVIAL(debug) << "Play : " << completePath;
 
 	/* play */
 	gst_element_set_state(mPipeline, GST_STATE_PLAYING);

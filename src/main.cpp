@@ -19,13 +19,13 @@
  **
  ******************************************************************************/
 
+#include "boost/program_options.hpp"
 #include <boost/asio.hpp>
 #include <boost/log/core.hpp>
 #include <boost/log/expressions.hpp>
 #include <boost/log/trivial.hpp>
-#include "boost/program_options.hpp"
 
-#include "clock.h"
+#include "westminster.h"
 
 #define UNUSED(identifier) (void)identifier
 
@@ -50,7 +50,10 @@ int main(int argc, const char *argv[])
 				   "[string] set clock ressources path")(
 			"volume,v", po::value<int>()->required(),
 			"[int] set sound volume in percent")(
-			"debug,d", "display debug log")(
+			"clock,c", po::value<std::string>()->required(),
+			"[string] set clock type (westminster)")(
+			"no-tick,n",
+			"disable second tick")("debug,d", "display debug log")(
 			"trace,t", "display trace log")("help,h",
 							"print help messages");
 
@@ -66,8 +69,13 @@ int main(int argc, const char *argv[])
 				return SUCCESS;
 			}
 
+			if (vm["clock"].as<std::string>() != "westminster") {
+				throw std::invalid_argument(
+					"Unknown clock type");
+			}
+
 			/* throws on error, so do after help in case
-                           there are any problems */
+			               there are any problems */
 			po::notify(vm);
 		}
 
@@ -97,7 +105,12 @@ int main(int argc, const char *argv[])
 
 		io_service io;
 		deadline_timer timer(io);
-		Clock clock = Clock(sound, timer);
+
+		Clock *clock;
+		if (vm["clock"].as<std::string>() == "westminster") {
+			clock = new Westminster(sound, timer,
+					    !(vm.count("no-tick") >= 1));
+		}
 		UNUSED(clock);
 
 		BOOST_LOG_TRIVIAL(info) << "The connected clock has started !";

@@ -19,48 +19,27 @@
  **
  ******************************************************************************/
 
-#ifndef CLOCK_H
-#define CLOCK_H
+#ifndef WESTMINSTER_H
+#define WESTMINSTER_H
 
-#include <boost/asio.hpp>
+#include "clock.h"
 
-#include "sound.h"
-
-using namespace boost::asio;
-
-/* Clock class
-** Watch current time and control audio output
+/* Westminster class
+** Watch current time with westminster type
 */
-class Clock {
+class Westminster : public Clock {
     public:
-	Clock(Sound &sound, deadline_timer &timer, bool tick);
-
-	virtual ~Clock() = 0;
-
-    protected:
-	/* Sound object */
-	Sound &mSound;
+	Westminster(Sound &sound, deadline_timer &timer, bool tick);
+	~Westminster();
 
     private:
-	/* Timer to handle new minutes */
-	deadline_timer &mTimer;
-
-	/* Status of tick sound every second */
-	bool mTick;
-
-	/* Start new timer */
-	void wait(void);
-
-	/* At timeout, check current time and send audio controls */
-	void timeout(const boost::system::error_code &e);
-
-	virtual void tick() = 0;
-	virtual void oneQuarter() = 0;
-	virtual void half() = 0;
-	virtual void threeQuarter() = 0;
-	virtual void hour() = 0;
-	virtual void fiveMinutes() = 0;
-	virtual void strike() = 0;
+	void tick();
+	void oneQuarter();
+	void half();
+	void threeQuarter();
+	void hour();
+	void fiveMinutes();
+	void strike();
 };
 
-#endif /* CLOCK_H */
+#endif /* WESTMINSTER_H */
