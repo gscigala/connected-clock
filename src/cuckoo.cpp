@@ -35,7 +35,6 @@ void Cuckoo::oneQuarter()
 void Cuckoo::half()
 {
 	BOOST_LOG_TRIVIAL(debug) << "Half hour";
-	mSound.play("half.ogg");
 
 	const ptime now = second_clock::local_time();
 	const int hours = (int)now.time_of_day().hours();
