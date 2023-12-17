@@ -52,7 +52,7 @@ int main(int argc, const char *argv[])
 			"volume,v", po::value<int>()->required(),
 			"[int] set sound volume in percent")(
 			"clock,c", po::value<std::string>()->required(),
-			"[string] set clock type (westminster)")(
+			"[string] set clock type (westminster or cuckoo)")(
 			"no-tick,n",
 			"disable second tick")("debug,d", "display debug log")(
 			"trace,t", "display trace log")("help,h",
