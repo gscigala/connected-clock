@@ -37,6 +37,10 @@ Run
 
 To launch the connected clock program in Big Ben style with a volume of 5%:
 
-`$ connected-clock -p /etc/connected-clock/bigben -v 5`
+`$ connected-clock -c westminster -p /etc/connected-clock/westminster/bigben -v 5`
+
+To launch the connected clock program in Cuckoo clock style with a volume of 10%:
+
+`$ connected-clock -c cuckoo -p /etc/connected-clock/cuckoo/classic -v 10`
 
 
