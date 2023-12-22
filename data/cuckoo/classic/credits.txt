@@ -1,0 +1,27 @@
+- "cuckoo.ogg", originatly named "Cuckoo Clock, Single, A.wav" by InspectorJ (www.jshaw.co.uk) of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+- "tick.ogg", originatly named "Kukuklok tikken.wav" by HerbertBoland of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+- "hour-1.ogg", originatly named "Music Box" by jmggs@hotmail.com of Freesound.org. License : https://creativecommons.org/publicdomain/zero/1.0/legalcode
+- "half-1.ogg", originatly named "When you wish upon a star - music box" by  Wakey Lad of youtube.com. (https://www.youtube.com/watch?v=5FaBDBuItpo)
+- "hour-2.ogg", originatly named "Magic Flute / The Birdcatcher's Song / Glockenspiel - Mozart Music Box ( REUGE )" by Wakey Lad of youtube.com. (https://www.youtube.com/watch?v=xbMqP3u7WWQ)
+- "half-2.ogg", originatly named "In Dreams (The Lord of the Rings) - Music Box" by TURN Music Box of youtube.com. (https://www.youtube.com/watch?v=Lx-q2kirvXM)
+- "hour-3.ogg", originatly named ""WILLIAM TELL OVERTURE" Played On 1899 Stella 17 1/4 Inch Console Grand Music Box" by MusicBoxBoy of youtube.com. (https://www.youtube.com/watch?v=hHE4j0tSufQ)
+- "half-3.ogg", originatly named "Music Box: "La Vie en Rose"" by newagesoup of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+- "hour-4.ogg", originatly named "Music Box - The Flea Waltz" by Flying_Deer_Fx of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+- "half-4.ogg", originatly named "Moon River - Music Box" by  Wakey Lad of youtube.com. (https://www.youtube.com/watch?v=FBveEpiXU1M)
+- "hour-5.ogg", originatly named "Magic Flute / The Birdcatcher's Song / Glockenspiel - Mozart Music Box ( REUGE )" by  Wakey Lad of youtube.com. (https://www.youtube.com/watch?v=xbMqP3u7WWQ)
+- "half-5.ogg", originatly named "Music_Box_Waltz_of_Flowers.cleanup.wav" by dobroide of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+- "hour-6.ogg", originatly named "Toreador Song from the opera Carmen by Georges Bizet musical box repair shop restoration" by The Music Box Restorer of youtube.com. (https://www.youtube.com/watch?v=xbMqP3u7WWQ)
+- "half-6.ogg", originatly named "Music Box "My Way".aif" by timgormly of Freesound.org. License : https://creativecommons.org/publicdomain/zero/1.0/legalcode
+- "hour-7.ogg", originatly named "Sankyo 72 Note Music Movement - Moldau (Vltava) CH3/72" by  Wakey Lad of youtube.com. (https://www.youtube.com/watch?v=xbMqP3u7WWQ)
+- "half-7.ogg", originatly named "Let It Go ( Frozen ) Music Box" by  Wakey Lad of youtube.com. (https://www.youtube.com/watch?v=Fkh9dGq-uYE)
+- "hour-8.ogg", originatly named "REUGE The Thieving Mugpie - Rossini / Music Box ( REUGE )" by  Wakey Lad of youtube.com. (https://www.youtube.com/watch?v=t2zdeMp9VNA)
+- "half-8.ogg", originatly named "music box loop 23.wav" by klankbeeld of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+- "hour-9.ogg", originatly named "Magic Flute / The Birdcatcher's Song / Glockenspiel - Mozart Music Box ( REUGE )" by Wakey Lad of youtube.com. (https://www.youtube.com/watch?v=xbMqP3u7WWQ)
+- "half-9.ogg", originatly named "music box loop 29.wav" by klankbeeld of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+- "hour-10.ogg", originatly named "Blue Danube Waltz Played On 1898 Olympia 15 3/4 Inch Music Box - Johann Strauss Composer" by  MusicBoxBoy of youtube.com. (https://www.youtube.com/watch?v=LFzwIh9e2mY)
+- "half-10.ogg", originatly named "music box loop 36.wav" by klankbeeld of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+- "hour-11.ogg", originatly named "Beethoven 5, 6, 9th Symphony - Music Box" by Wakey Lad of youtube.com. (https://www.youtube.com/watch?v=grf5q79Pc1U)
+- "half-11.ogg", originatly named "music box loop 05 fast.wav" by klankbeeld of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+- "hour-12.ogg", originatly named ""MERRY WIDOW WALTZ" Played On 1905 Mira 18 1/2 inch Concert Grand Disc Music Box" by  MusicBoxBoy of youtube.com. (https://www.youtube.com/watch?v=jM1Vy9Z4I4U)
+- "half-12.ogg", originatly named "Let it Be - Music Box.wav" by Puniho of Freesound.org. License : https://creativecommons.org/licenses/by/3.0/legalcode
+

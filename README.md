@@ -18,20 +18,7 @@ Dependencies
 
 Connected clock program uses GStreamer for audio output and Boost libraries for timer, program options and log. 
 
-### Boost
-
-To install Boost:
-
-`$ sudo apt install libboost-dev-all`
-
 For more informations about Boost: http://www.boost.org/
-
-### GStreamer
-
-To install GStreamer:
-
-`$ sudo apt install gstreamer-1.0`
-
 For more informations about GStreamer: http://gstreamer.freedesktop.org/
 
 Build
@@ -50,6 +37,10 @@ Run
 
 To launch the connected clock program in Big Ben style with a volume of 5%:
 
-`$ connected-clock -p /etc/connected-clock/bigben -v 5`
+`$ connected-clock -c westminster -p /etc/connected-clock/westminster/bigben -v 5`
+
+To launch the connected clock program in Cuckoo clock style with a volume of 10%:
+
+`$ connected-clock -c cuckoo -p /etc/connected-clock/cuckoo/classic -v 10`
 
 

@@ -1,7 +1,7 @@
 project('connected-clock', 'cpp')
 
-src = ['src/main.cpp', 'src/sound.cpp', 'src/clock.cpp']
-incdir = include_directories('inc')
+src = ['src/main.cpp', 'src/sound.cpp', 'src/clock.cpp', 'src/cuckoo.cpp', 'src/westminster.cpp']
+incdir = include_directories('src')
 
 boost_dep = dependency('boost', modules : ['log', 'program_options', 'system'])
 gst_dep = dependency('gstreamer-1.0')
@@ -14,10 +14,7 @@ executable('connected-clock', src,
            link_args : '-Wall',
            install: true)
 
-install_subdir('data/bigben', install_dir : '/etc/connected-clock')
-
-# With meson >= 0.45.0
-#install_subdir('data',
-#               install_dir : '/etc/connected-clock',
-#               strip_directory : true)
+install_subdir('data',
+               install_dir : '/etc/connected-clock',
+               strip_directory : true)
 
