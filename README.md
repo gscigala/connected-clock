@@ -26,9 +26,9 @@ Build
 
 This project use Meson as build system: http://mesonbuild.com/index.html
 
-`$ meson build && cd build`
+`$ meson setup build`
 
-`$ ninja`
+`$ ninja -C build`
 
 `$ sudo ninja install`
 

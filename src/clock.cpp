@@ -20,13 +20,14 @@
  ******************************************************************************/
 
 #include <boost/asio.hpp>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/log/trivial.hpp>
 
 #include "clock.h"
 
 using namespace boost::posix_time;
+namespace ph = boost::asio::placeholders;
 
 Clock::Clock(Sound &sound, bool tick, deadline_timer &timer)
 	: mSound(sound), mTick(tick), mTimer(timer)
@@ -44,7 +45,7 @@ void Clock::wait(void)
 {
 	mTimer.expires_from_now(millisec(10));
 	mTimer.async_wait(
-		boost::bind(&Clock::timeout, this, placeholders::error));
+		boost::bind(&Clock::timeout, this, ph::error));
 }
 
 void Clock::timeout(const boost::system::error_code &e)
