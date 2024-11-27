@@ -46,17 +46,17 @@ int main(int argc, const char *argv[])
 		/* Define and parse the program options */
 		namespace po = boost::program_options;
 		po::options_description desc("Options");
-		desc.add_options()("path,p",
-				   po::value<std::string>()->required(),
-				   "[string] set clock ressources path")(
-			"volume,v", po::value<int>()->required(),
-			"[int] set sound volume in percent")(
-			"clock,c", po::value<std::string>()->required(),
-			"[string] set clock type (westminster or cuckoo)")(
-			"no-tick,n",
-			"disable second tick")("debug,d", "display debug log")(
-			"trace,t", "display trace log")("help,h",
-							"print help messages");
+		desc.add_options()("path,p", po::value<std::string>()->required(),
+			"[string] set clock ressources path")
+			("volume,v",po::value<int>()->required(),
+			"[int] set sound volume in percent")
+			("clock,c", po::value<std::string>()->required(),
+			"[string] set clock type (westminster or cuckoo)")
+			("no-tick,n",
+			"disable second tick")
+			("debug,d", "display debug log")
+			("trace,t", "display trace log")
+			("help,h", "print help messages");
 
 		po::variables_map vm;
 		try {
@@ -70,7 +70,8 @@ int main(int argc, const char *argv[])
 				return SUCCESS;
 			}
 
-			if ((vm["clock"].as<std::string>() != "cuckoo")
+			if (vm.count("clock")
+				&& (vm["clock"].as<std::string>() != "cuckoo")
 				&& (vm["clock"].as<std::string>() != "westminster")) {
 				throw std::invalid_argument(
 					"Unknown clock type");

@@ -10,8 +10,7 @@ thread_dep = dependency('threads')
 executable('connected-clock', src,
            include_directories : incdir,
            dependencies : [boost_dep, gst_dep, thread_dep],
-           cpp_args : '-DBOOST_LOG_DYN_LINK',
-           link_args : '-Wall',
+           cpp_args : ['-DBOOST_LOG_DYN_LINK', '-Wall', '-Werror'],
            install: true)
 
 install_subdir('data',
