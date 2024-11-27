@@ -70,7 +70,8 @@ int main(int argc, const char *argv[])
 				return SUCCESS;
 			}
 
-			if ((vm["clock"].as<std::string>() != "cuckoo")
+			if (vm.count("clock")
+				&& (vm["clock"].as<std::string>() != "cuckoo")
 				&& (vm["clock"].as<std::string>() != "westminster")) {
 				throw std::invalid_argument(
 					"Unknown clock type");
